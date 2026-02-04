@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>𝖵𝖺𝗅𝖾𝗇𝗍𝗂𝗇𝖾𝗌 𝗈𝗄𝖺𝗒?</title>
+
+  <!-- ======================
+       GLOBAL STYLES
+       ====================== -->
+  <style>
+    /* Remove default browser spacing */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    /* Body takes full screen */
+    body {
+      height: 100vh;
+      overflow: hidden; /* Prevent scrolling between scenes */
+    }
+
+    /* ======================
+       BACKGROUND VIDEO
+       ====================== */
+    #bg-video {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -1;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.35);
+      z-index: 0;
+    }
+
+    /* ======================
+       SCENE BASE STYLE
+       ====================== */
+    .scene {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      color: white;
+      z-index: 1;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 1s ease;
+    }
+
+    .scene.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* ======================
+       BUTTON / CLICKABLE ITEMS
+       ====================== */
+    .start-btn {
+      margin-top: 25px;
+      padding: 15px 35px;
+      font-size: 1.1rem;
+      border: none;
+      border-radius: 30px;
+      background: pink;
+      color: #333;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .start-btn:hover {
+      transform: scale(1.05);
+    }
+
+    /* ======================
+       HEART SECTION (UPDATED)
+       ====================== */
+    .heart-container {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+    }
+
+    .big-figure {
+      width: 200px;
+      max-width: 40vw;
+    }
+
+    .heart-text {
+      font-size: clamp(1.5rem, 3vw, 2.5rem);
+      font-weight: 700;
+      margin-left: 20px;
+      display: inline-block;
+      vertical-align: middle;
+      background: linear-gradient(90deg, #ff9a9e, #fad0c4, #fbc2eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 15px rgba(255,255,255,0.8);
+    }
+
+    /* YES rose */
+    .rose {
+      width: 90px;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .rose:hover {
+      transform: scale(1.1);
+    }
+
+    /* NO option */
+    .no-option {
+      font-size: 1rem;
+      opacity: 0.8;
+      cursor: pointer;
+    }
+
+    /* Horizontal choice row */
+    .choice-row {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 40px;
+      margin-top: 30px;
+    }
+
+    /* Sad GIF */
+    .sad-gif {
+      width: 120px;
+      margin-top: 20px;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- ======================
+       BACKGROUND VIDEO
+       ====================== -->
+  <video id="bg-video" autoplay muted loop>
+    <source src="https://raw.githubusercontent.com/voidace2006-netizen/valentines/main/From%20KlickPin%20CF%20Pin%20de%20%E6%84%9BHAROpostings%F0%9F%87%A7%F0%9F%87%B7%20em%20Postings%20and%20memes%20%F0%9F%87%A7%F0%9F%87%B7%20em%202026%20_%20Gatos.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <!-- ======================
+       AUDIO
+       ====================== -->
+  <audio id="bg-music" loop>
+    <source src="https://raw.githubusercontent.com/voidace2006-netizen/valentines/main/Kiss%20Me%20-%20Sixpence%20None%20the%20Richer.mp3" type="audio/mpeg">
+  </audio>
+
+  <!-- ======================
+       SCENE 0 – START
+       ====================== -->
+  <div class="scene active" id="scene-start">
+    <h1>𝓥𝓸𝓵𝓾𝓶𝓮 𝓤𝓹 𝓟𝔀𝓮𝓪𝓼𝓮.... </h1>
+    <p style="margin-top:10px;">'𝙲𝚊𝚞𝚜𝚎 𝙸 𝚌𝚊𝚛𝚎 𝚊𝚋𝚘𝚞𝚝 𝚖𝚢 𝚏𝚛𝚒𝚎𝚗𝚍𝚜 UwU</p>
+    <button class="start-btn" onclick="startExperience()">𝖢𝗅𝗂𝖼𝗄 𝖬𝖾</button>
+  </div>
+
+  <!-- ======================
+       SCENE 1 – BUILD UP
+       ====================== -->
+  <div class="scene" id="scene-one">
+    <h2>𝖶𝖺𝗂𝗍 𝖺𝗇𝖽 𝖾𝗇𝗃𝗈𝗒 𝗍𝗁𝖾 𝗌𝗈𝗇𝗀 𝖺 𝖻𝗂𝗍</h2>
+    <p style="margin-top:15px; max-width:500px;">Since there's no one to ask you this...</p>
+    <button class="start-btn" onclick="goToScene('scene-two')">𝖮𝗄𝖺𝗒..?</button>
+  </div>
+
+<!-- ======================
+     SCENE 2 – HEART QUESTION (UPDATED)
+     ====================== -->
+<div class="scene" id="scene-two">
+
+  <div class="heart-container">
+    <!-- ONE BIG FIGURE -->
+    <img src="https://raw.githubusercontent.com/voidace2006-netizen/valentines/main/giphy.gif" class="big-figure">
+
+    <div class="heart-text">
+      𝓒𝓪𝓷 𝓘 𝓫𝓮 𝔂𝓸𝓾𝓻 𝓿𝓪𝓵𝓮𝓷𝓽𝓲𝓷𝓮?<br>
+      Click Heart if yes okay?
+    </div>
+
+    <!-- YES / NO horizontally aligned -->
+    <div class="choice-row">
+      <img src="https://raw.githubusercontent.com/voidace2006-netizen/valentines/main/%F0%9D%99%94%F0%9D%99%80%F0%9D%99%8E%F0%9D%99%8E%F0%9D%99%8E%F0%9D%99%8E-removebg-preview.png" class="rose" onclick="yesClicked()">
+      <div class="no-option" onclick="noClicked()">No</div>
+    </div>
+  </div>
+
+</div> <!-- ✅ CLOSE scene-two properly -->
+
+<!-- ======================
+     SCENE 3 – NO RESPONSE
+     ====================== -->
+<div class="scene" id="scene-no">
+  <img src="https://raw.githubusercontent.com/voidace2006-netizen/valentines/main/giphy%20(3).gif" class="sad-gif">
+  <p style="margin-top:15px;">Not an option. Click the below heart woman.</p>
+  <img src="https://raw.githubusercontent.com/voidace2006-netizen/valentines/main/%F0%9D%99%94%F0%9D%99%80%F0%9D%99%8E%F0%9D%99%8E%F0%9D%99%8E%F0%9D%99%8E-removebg-preview.png" class="rose" onclick="yesClicked()">
+</div>
+
+<!-- ======================
+     SCENE 4 – YES FINAL
+     ====================== -->
+<div class="scene" id="scene-yes">
+  <h2>Okay now your day has been reserved.</h2>
+  <p style="margin-top:15px; max-width:500px;">Love you so much twin!</p>
+</div>
+
+  <!-- ======================
+       JAVASCRIPT LOGIC
+       ====================== -->
+  <script>
+    const music = document.getElementById('bg-music');
+
+    function startExperience() {
+      music.play();
+      goToScene('scene-one');
+    }
+
+    function goToScene(sceneId) {
+      document.querySelectorAll('.scene').forEach(scene => {
+        scene.classList.remove('active');
+      });
+      document.getElementById(sceneId).classList.add('active');
+    }
+
+    function yesClicked() {
+      goToScene('scene-yes');
+    }
+
+    function noClicked() {
+      goToScene('scene-no');
+    }
+  </script>
+
+</body>
+</html>
